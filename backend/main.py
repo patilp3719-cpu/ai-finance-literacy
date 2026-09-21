@@ -17,8 +17,15 @@ app = FastAPI(
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "https://*.vercel.app", "http://localhost:3000", "http://localhost:5173"],
-    allow_credentials=True,
+    allow_origins=[
+        FRONTEND_URL,
+        "https://ai-finance-literacy.vercel.app",
+        "https://*.vercel.app",
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "*",
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
